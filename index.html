@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>C24 Feature vs Non Feature Listings</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>CARS24 Feature vs Non Feature Listings</h1>
+      <p id="subtitle">Live Google Sheet dashboard</p>
+    </div>
+    <button id="refreshBtn">Refresh data</button>
+  </header>
+  <main class="container">
+    <section class="controls">
+      <label>City <select id="cityFilter"><option value="All">All cities</option></select></label>
+      <span id="updatedAt">Waiting for data...</span>
+    </section>
+    <section class="cards">
+      <div class="card"><p>Total listings</p><h2 id="totalListings">-</h2></div>
+      <div class="card"><p>Featured listings</p><h2 id="featuredListings">-</h2></div>
+      <div class="card"><p>Non-featured listings</p><h2 id="nonFeaturedListings">-</h2></div>
+      <div class="card"><p>Featured share</p><h2 id="featuredShare">-</h2></div>
+      <div class="card"><p>Total leads</p><h2 id="totalLeads">-</h2></div>
+      <div class="card"><p>Lead per listing</p><h2 id="leadPerListing">-</h2></div>
+    </section>
+    <section class="insight" id="insightBox">Connect Apps Script URL in js/config.js to make this live.</section>
+    <section class="grid">
+      <div class="panel"><h3>Daily listings trend</h3><canvas id="dailyChart"></canvas></div>
+      <div class="panel"><h3>Featured vs non-featured mix</h3><canvas id="mixChart"></canvas></div>
+      <div class="panel"><h3>City performance</h3><canvas id="cityChart"></canvas></div>
+      <div class="panel"><h3>Leads by listing type</h3><canvas id="leadChart"></canvas></div>
+    </section>
+    <section class="panel tablePanel">
+      <h3>City summary</h3>
+      <table><thead><tr><th>City</th><th>Total</th><th>Featured</th><th>Non-featured</th><th>Leads</th><th>Lead/listing</th></tr></thead><tbody id="cityTable"></tbody></table>
+    </section>
+  </main>
+  <script src="js/config.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
